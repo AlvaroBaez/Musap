@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trabajadoras de las Artes</title>
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist\css\bootstrap.min.css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+    <script src="jquery\jquery-3.5.1.min.js"></script>
+    <script src="bootstrap-4.0.0-dist\js\bootstrap.min.js"></script>
+	<script>
+function rollover(my_image,i)
+{
+	my_image.src = 'images/alt_'+i+'.png';
+}
+function mouseaway(my_image,i)
+{
+	my_image.src = "images/alt"+i+".png";
+}
+	
+function changeImage()
+{
+	element=document.getElementById('example')
+	element.src="images/logo_botones.png";
+}
+
+function changeImage_link(i)
+{
+	if(i == '1') {
+		window.location.replace("#");
+	}
+	if(i == '2') {
+		window.location.replace("#");
+	}
+	if(i == '3') {
+		window.location.replace("#");
+	}
+	if(i == '4') {
+		window.location.replace("escuela.html");
+	}
+			
+}
+
+function changeImage_alt_2()
+{
+	var container = document.getElementById('image_transation');
+	const content = "<div id='image_transation' class='image_transation_pos'><div class='container'><div class='container imagecenter'><div class='row'><div class='col-sm-3 col-md-3'><img src='images/alt1.png' onmouseover='rollover(this,1)' onmouseout='mouseaway(this,1)' onclick='changeImage_link(1)'></div> <div class='col-sm-3 col-md-3'><img src='images/alt2.png' onmouseover='rollover(this,2)' onmouseout='mouseaway(this,2)' onclick='changeImage_link(2)'></div> <div class='col-sm-3 col-md-3'><img src='images/alt3.png' onmouseover='rollover(this,3)' onmouseout='mouseaway(this,3)' onclick='changeImage_link(3)'></div> <div class='col-sm-3 col-md-3'><img src='images/alt4.png' onmouseover='rollover(this,4)' onmouseout='mouseaway(this,4)' onclick='changeImage_link(4)'></div> </div> </div></div>"
+	container.innerHTML =content;
+	
+	var container_carr = document.getElementById('caruseltexto');
+	container_carr.innerHTML = "";
+}
+
+function changeImage_alt()
+{
+	var container = document.getElementById('image_transation');
+	console.log(container);
+	const content = "<div class='container'><img id='logo_center' class='imagecenter' src='images/pruebabotones.png' onclick='changeImage_alt_2()'></di>"
+	container.innerHTML =content;
+}
+</script>
+  <link rel="stylesheet" href="styles1.css" />
+  </head> 
+ 
+  <body>
+  <nav class="navbar navbar-expand-lg fixed-top orangerect"> 
+  	<div class="imagenav"> 
+      <a href="#">
+        <img src="images/logo_small.png" width="167" height="39" alt="" />
+      </a>
+	</div>
+      <button
+        type="button"
+        class="navbar-toggler bg-light"
+        data-toggle="collapse"
+        data-target="#nav"
+      >
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-around navnavtop" id="nav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-light font-weight-bold px-3 navinicio" href="index.html">INICIO</a
+            >
+          </li> 
+          <li class="nav-item dropdown">
+            <a class="nav-link text-light px-3 navnosotras font-weight-bold" data-target="#catalogue-menu-nos"
+				data-toggle="dropdown" >NOSOTRAS</a>
+            <div class="dropdown-menu" id="catalogue-menu-nos">
+              <a class="dropdown-item font-weight-bold" href="#">QUIENES SOMOS</a> 
+
+              <a class="dropdown-item font-weight-bold" href="#">GALERÍA</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item font-weight-bold" href="#">NOVEDADES</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a href="catalogo_init.html" class="nav-link text-light font-weight-bold px-3 navcatalogo font-weight-bold" data-target="#catalogue-menu" data-toggle="dropdown">CATALOGO</a>
+
+            <div class="dropdown-menu " id="catalogue-menu">
+              <a href="catalogo_init.html" class="dropdown-item font-weight-bold">MÚSICA</a>
+			  <div class="dropdown-divider"></div>
+              <a href="catalogo_init.html" class="dropdown-item font-weight-bold">AUDIOVISUAL</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-light font-weight-normal navfestival font-weight-bold" px-3 href="#"
+              >FESTIVAL</a> 
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link text-light font-weight-bold navescuela px-3" data-target="#school-menu"
+              data-toggle="dropdown">ESCUELA</a>
+
+            <div class="dropdown-menu" id="school-menu">
+              <a class="dropdown-item font-weight-bold" href="escuela.html">PROGRAMACIÓN </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item font-weight-bold" href="escuela.html">CANAL DIGITAL</a>
+            </div>
+          </li>
+        </ul>
+        <form method="get" action="serparte_registro.html" class="form-inline ml-3">
+          <div class="input-group">
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-login">
+				  <input type="radio" name="options" id="option1" autocomplete="off" checked> INICIAR SESIÓN
+				</label>
+				<label class="btn btn-login">
+				  <input type="radio" name="options" id="option3" autocomplete="off"> REGISTRARSE
+				</label>
+			</div>
+          </div>
+        </form>
+      </div>
+	</nav>
+     
+
+    <div class="container"> 
+      <div class="container logo_center">
+      	<div id="image_transation">
+        <div class="container">
+        <img id="logo_center"
+			class="imagecenter"
+			src="images/Negro_logo_horizontal_medium.png"
+            onclick="changeImage_alt_2()"
+             alt="asdf">
+            </div>
+      </div>
+      
+      </div>
+      
+      </div>
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-ride="carousel"
+      >
+        <div id="caruseltexto" class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="carousel-caption">
+              <h3>PLATAFORMA DE FOMENTO AL TRABAJO,</h3>
+              <h3>LA ASOCIATIVIDAD Y PROMOCIÓN</h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-caption">
+              <h3>ECOSISTEMA FEMINISTA DE TRABAJO EN RED</h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-caption">
+              <h3>SOMOS RED, ACCIÓN Y CREACIÓN</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row row-cols-2">
+          <div class="row col">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1">
+              <img src="images/face.png" alt="" />
+            </div>
+            <div class="col-sm-1" style="padding-left: 30px;">
+              <img src="images/insta.png" alt="" /> 
+              </div>
+               <div class="col-sm-1" style="padding-left: 30px;">
+              <img src="images/contacto.png" alt="" /> 
+            </div>
+          </div> 
+          <div class="row col">
+            <div class="col-sm-2 musapfooter">
+              <img src="images/03_LogoMusap_white_footer.png" alt="" />
+            </div>
+            <div class="col-sm-2 fmnfooter"><img src="images/fmn.png" alt="" /></div>
+            <div class="col-sm-2 femfooter">
+              <img src="images/femfest.png" alt="" />
+            </div>
+            <div class="col-sm-2 nekoefooter"><img src="images/nekoe.png" alt="" /></div>
+            <div class="col-sm-2 gestorasfooter">
+              <img src="images/gestoras.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
