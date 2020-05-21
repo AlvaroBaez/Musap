@@ -1,0 +1,159 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #000000;
+  margin-bottom: -7px;
+}
+
+.footer-size {
+  height: 150px;
+  width: 100%;
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  width: 56px;
+}
+
+.navbar > div {
+  width: 100%;
+}
+
+.footer .logos {
+  width: 190px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer .social {
+  width: 235px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer .social a {
+  height: 60px;
+}
+
+.footer .logos {
+  width: 190px;
+}
+
+.footer .logos a {
+  height: 40px;
+}
+
+.navbar-expand-lg .navbar-collapse.menu-mobile {
+  display: flex;
+}
+
+.collapse:not(.show).menu-mobile {
+  display: none;
+}
+
+.navbar-expand-lg .navbar-collapse.menu-desktop {
+  display: none;
+}
+
+@media (min-width: 426px) {
+  .navbar > div {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar > div {
+    width: 1000px;
+  }
+  .footer .container {
+    width: 1000px;
+  }
+  .footer .logos {
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer .social {
+    width: 415px;
+  }
+  .navbar-expand-lg .navbar-collapse.menu-mobile {
+    display: none !important;
+  }
+  .navbar-expand-lg .navbar-collapse.menu-desktop {
+    display: flex;
+  }
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  align-items: flex-end;
+}
+
+.contacto {
+  line-height: initial;
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  justify-content: center;
+}
+
+/* -------------------------------------------------- */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+code {
+  font-size: 80%;
+}
+
+/* IMAGEN DE FONDO */
+
+.imagen-fondo {
+  background-image: url("images/fondo2_medium_transparent.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.background-nav {
+  background-color: #ff453d;
+}
+
+.background-nav-black {
+  background-color: black;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary.active,
+.btn-secondary.active:focus,
+.btn-secondary.active:hover {
+  background-color: #000000;
+  border-color: #000000;
+}
