@@ -47,6 +47,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .footer .social {
   width: 235px;
   display: flex;
@@ -59,8 +60,13 @@ body {
   height: 60px;
 }
 
+.footer .social img {
+  margin-left: 5px;
+}
+
 .footer .logos {
   width: 190px;
+  margin-bottom: 10px;
 }
 
 .footer .logos a {
@@ -79,13 +85,33 @@ body {
   display: none;
 }
 
+.imagenes-logos {
+  width: 60%;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  color: #16181b !important;
+  text-decoration: none;
+  background-color: #f8f9fa;
+}
+
 @media (min-width: 426px) {
+  /** tablet **/
   .navbar > div {
+    width: 100%;
+  }
+  .imagenes-logos {
+    width: 60%;
+  }
+  .footer-size {
+    height: 150px;
     width: 100%;
   }
 }
 
 @media (min-width: 769px) {
+  /** desktop **/
   .navbar > div {
     width: 1000px;
   }
@@ -96,6 +122,7 @@ body {
     width: 450px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
   }
   .footer .social {
     width: 415px;
@@ -106,6 +133,16 @@ body {
   .navbar-expand-lg .navbar-collapse.menu-desktop {
     display: flex;
   }
+  .imagenes-logos {
+    width: 100%;
+  }
+  .footer .social img {
+    margin-left: 0px;
+  }
+  .footer-size {
+    height: 100px;
+    width: 100%;
+  }
 }
 
 .burger {
@@ -113,6 +150,7 @@ body {
   flex-direction: column;
   width: 150px;
   align-items: flex-end;
+  padding-top: 5px;
 }
 
 .contacto {
@@ -121,6 +159,7 @@ body {
   flex-direction: column;
   height: 60px;
   justify-content: center;
+  font-size: 10px;
 }
 
 /* -------------------------------------------------- */
@@ -141,12 +180,22 @@ code {
   background-repeat: no-repeat;
 }
 
+.imagen-fondo-catalogo {
+  background-image: url("images/Fondo_pag1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .background-nav {
   background-color: #ff453d;
 }
 
 .background-nav-black {
   background-color: black;
+}
+
+.text-black {
+  color: #000000;
 }
 
 .btn-secondary,
@@ -156,4 +205,170 @@ code {
 .btn-secondary.active:hover {
   background-color: #000000;
   border-color: #000000;
+}
+
+/* --------- INDEX -----------*/
+
+.boton-blanco {
+  border: 5px solid white;
+  background: transparent;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
+/* ------- IMAGEN CENTRO -----*/
+
+.imagen-medio {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+.imagecenter {
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.imagecenter div {
+  display: flex;
+  flex-direction: column;
+}
+
+.imagen-centrada {
+  max-width: 100%;
+  min-width: 165px;
+  padding: 0px 4px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.imagen-centrada img {
+  display: none;
+}
+
+.imagen-negra > img:hover + button {
+  display: none;
+}
+
+@media (min-width: 426px) {
+  .imagen-centrada {
+    max-width: 100%;
+    min-width: 165px;
+    padding: 0px 4px;
+    flex-direction: column;
+  }
+  .imagen-centrada img {
+    display: flex;
+  }
+  .imagecenter > div {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 769px) {
+  .imagen-centrada {
+    max-width: 100%;
+    min-width: 165px;
+    padding: 0px 8px;
+  }
+  .imagen-centrada img {
+    display: flex;
+  }
+}
+
+/* ----- catalogo -----*/
+
+.cuadro-amarillo {
+  border: 7px solid yellow;
+  margin: 20px 20px;
+  width: 200px;
+  height: 100px;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 12px;
+  position: relative;
+}
+
+.fuente-blanca {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.global-container {
+  max-width: 377px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+@media (min-width: 425px) {
+  .global-container {
+    max-width: 704px;
+  }
+}
+
+@media (min-width: 769px) {
+  .global-container {
+    max-width: 960px;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.2s ease;
+  background-color: yellow;
+  border-radius: 0;
+}
+
+.cuadro-amarillo:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-orange {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.2s ease;
+  border-radius: 0;
+}
+
+.imagen-centrada:hover .overlay-orange {
+  opacity: 1;
+}
+
+.muestra1 {
+  display: flex;
+}
+
+.muestra2 {
+  display: none;
 }
