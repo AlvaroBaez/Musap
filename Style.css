@@ -372,3 +372,56 @@ code {
 .muestra2 {
   display: none;
 }
+
+/* ---- FORMULARIO -----*/
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: white;
+  background-color: transparent;
+  border: 2px solid yellow;
+  border-radius: 10px !important;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: white;
+  background-color: transparent;
+  border: 2px solid yellow;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control::placeholder {
+  color: white;
+  font-weight: bold;
+}
+
+.btn-formulario.btn.btn-primary,
+.btn-formulario.btn.btn-primary:hover,
+.btn-formulario.btn.btn-primary.active,
+.btn-formulario.btn.btn-primary.active:focus,
+.btn-formulario.btn.btn-primary.active:hover {
+  background-color: yellow;
+  border-radius: 8px;
+  color: black;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-color: yellow;
+  font-weight: bold;
+}
+
+@media (min-width: 769px) {
+  /** desktop **/
+  .container-formulario {
+    width: 60%;
+  }
+}
