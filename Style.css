@@ -62,6 +62,7 @@ main.container {
 
 .navbar > div {
   width: 100%;
+  padding: 0px 15px;
 }
 
 .footer .logos {
@@ -136,7 +137,7 @@ main.container {
 @media (min-width: 769px) {
   /** desktop **/
   .navbar > div {
-    width: 1000px;
+    width: 1140px;
   }
   .footer .container {
     width: 1000px;
@@ -540,4 +541,211 @@ code {
   border: 2px solid yellow;
   border-radius: 50%;
   background: yellow;
+}
+
+/* ----- catalogo MUSICXS -----*/
+
+.titulo-amarillo {
+  color: yellow;
+}
+
+.container-musicxs {
+  width: 100%;
+}
+
+.container-musicxs > div.bd-highlight > div:last-of-type {
+  margin-left: 0px;
+}
+
+.form-control.normal {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: black;
+  background-color: white;
+  border: 0px solid gray;
+  border-radius: 5px !important;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control.normal:focus {
+  color: black;
+  background-color: white;
+  border: 0px solid gray;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.caja-musicxs {
+  border-radius: 10px;
+  border: 2px solid yellow;
+  background-color: transparent;
+  color: white;
+  padding: 5px 30px;
+  margin: 0px 10px 10px 0px;
+}
+
+.imagen-fondo-catalogo-color {
+  background-color: #0e0a24;
+}
+
+.cuadro-imagen-circulo {
+  align-items: center;
+  min-width: 180px;
+  margin: 20px;
+}
+
+.imagen-circulo {
+  width: inherit;
+  display: flex;
+}
+
+.texto-artista {
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+.imagen-circulo-mobile {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.boton-amarillo-musicxs {
+  margin: 10px 0px 20px 0px;
+  width: 100%;
+}
+
+.container-musicxs > div {
+  flex-direction: column;
+}
+
+.boton-musicxs {
+  width: 100%;
+  margin-top: 15px;
+}
+
+@media (min-width: 426px) {
+  /** tablet **/
+  .imagen-circulo {
+    width: 80%;
+    display: flex;
+  }
+
+  .imagen-circulo-mobile {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .container-musicxs > div {
+    flex-direction: row;
+  }
+  .boton-musicxs {
+    width: 100%;
+    margin-top: 0px;
+  }
+  .container-musicxs > div.bd-highlight > div:last-of-type {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  /** desktop **/
+  .imagen-circulo {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .imagen-circulo-mobile {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .cuadro-imagen-circulo {
+    min-width: 180px;
+    margin: 20px;
+  }
+  .container-musicxs > div {
+    flex-direction: row;
+  }
+  .boton-musicxs {
+    width: 100%;
+    margin-top: 0px;
+  }
+  .container-musicxs > div.bd-highlight > div:last-of-type {
+    margin-left: auto;
+  }
+}
+
+/* ---- catalogo PERSONA ---- */
+
+.container-sidebar {
+  width: 395px;
+}
+
+.container-contenido {
+  width: 395px;
+}
+
+@media (min-width: 426px) {
+  /** tablet **/
+  .container-sidebar {
+    width: 100%;
+  }
+  .container-contenido {
+    width: 100%;
+  }
+  .imagen-proyecto {
+    margin-right: 19px;
+    width: 50%;
+  }
+}
+
+@media (min-width: 769px) {
+  /** desktop **/
+  .container-sidebar {
+    width: 300px;
+    margin-right: 100px;
+  }
+  .container-contenido {
+    width: 710px;
+  }
+  .imagen-proyecto {
+    margin-right: 19px;
+    width: 100%;
+  }
+}
+
+.imagen-banner {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.texto-amarillo-size {
+  color: yellow;
+  font-size: 10px;
+}
+
+.texto-amarillo {
+  color: yellow;
+}
+
+.caja-servicios {
+  border-radius: 5px;
+  border: 0px;
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  margin: 0px 5px 10px 0px;
+  font-size: 8px;
+}
+
+.imagen-proyecto {
+  width: 50%;
+  margin-right: 19px;
 }
