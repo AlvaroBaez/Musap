@@ -684,40 +684,11 @@ code {
 /* ---- catalogo PERSONA ---- */
 
 .container-sidebar {
-  width: 395px;
+  width: 100%;
 }
 
 .container-contenido {
-  width: 395px;
-}
-
-@media (min-width: 426px) {
-  /** tablet **/
-  .container-sidebar {
-    width: 100%;
-  }
-  .container-contenido {
-    width: 100%;
-  }
-  .imagen-proyecto {
-    margin-right: 19px;
-    width: 50%;
-  }
-}
-
-@media (min-width: 769px) {
-  /** desktop **/
-  .container-sidebar {
-    width: 300px;
-    margin-right: 100px;
-  }
-  .container-contenido {
-    width: 710px;
-  }
-  .imagen-proyecto {
-    margin-right: 19px;
-    width: 100%;
-  }
+  width: 100%;
 }
 
 .imagen-banner {
@@ -746,6 +717,90 @@ code {
 }
 
 .imagen-proyecto {
-  width: 50%;
-  margin-right: 19px;
+  width: 100%;
+  padding: 2% 0px;
+  justify-content: space-between;
+}
+
+.caja-proyecto {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.imagen-ultimo-trabajo {
+  flex-grow: 1;
+  flex-direction: column-reverse;
+}
+
+.imagen-ultimo-trabajo > img {
+  max-width: 100%;
+  padding-bottom: 5px;
+}
+
+.imagen-video {
+  width: 100%;
+}
+
+.imagen-portafolio {
+  width: 100%;
+}
+
+@media (min-width: 426px) {
+  /** tablet **/
+  .container-sidebar {
+    width: 100%;
+  }
+  .container-contenido {
+    width: 100%;
+  }
+  .imagen-proyecto {
+    width: 49%;
+    padding: 5px 0px;
+    justify-content: space-between;
+  }
+  .imagen-ultimo-trabajo {
+    flex-grow: 1;
+    flex-direction: column-reverse;
+  }
+  .imagen-ultimo-trabajo > img {
+    max-width: 220px;
+    padding-bottom: 5px;
+  }
+  .imagen-video {
+    width: 100%;
+  }
+  .imagen-portafolio {
+    width: 225px;
+  }
+}
+
+@media (min-width: 769px) {
+  /** desktop **/
+  .container-sidebar {
+    width: 300px;
+    margin-right: 100px;
+  }
+  .container-contenido {
+    width: 710px;
+  }
+  .imagen-proyecto {
+    width: 32%;
+    padding: 5px 0px;
+    justify-content: space-between;
+  }
+  .imagen-ultimo-trabajo {
+    flex-grow: 1;
+    flex-direction: row;
+  }
+  .imagen-ultimo-trabajo > img {
+    max-width: 220px;
+    padding-left: 5px;
+  }
+  .imagen-video {
+    width: 353px;
+  }
+  .imagen-portafolio {
+    width: 225px;
+  }
 }
