@@ -1114,3 +1114,188 @@ code {
     position: relative;
   }
 }
+
+/* ----- ESCUELA -----*/
+
+.imagen-fondo-catalogo-escuela {
+  background-color: white;
+}
+
+.imagen-banner-fondo {
+  background-image: url("images/banner_escuela.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  padding: 20px;
+  flex-direction: column !important;
+  align-items: center;
+}
+
+.imagen-banner-fondo-canaldigital {
+  background-image: url("images/banner_canaldigital.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  padding: 20px;
+  margin-top: 30px;
+  flex-direction: column !important;
+  align-items: center;
+}
+
+.columna-uno {
+  width: 100%;
+}
+
+.fondo-negro {
+  background-color: black;
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.fondo-negro-bajo-imagen {
+  background-color: black;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+  min-height: 108px;
+  justify-content: end;
+}
+
+.text-10 {
+  font-size: 10px;
+}
+
+.text-8 {
+  font-size: 8px;
+}
+
+.caja-cuadros {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.imagen-escuela {
+  width: 100%;
+}
+
+@media (min-width: 426px) {
+  /** tablet **/
+  .columna-uno {
+    width: 48%;
+  }
+  .caja-cuadros {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .imagen-escuela {
+    width: 100%;
+  }
+  .fondo-negro-bajo-imagen {
+    background-color: black;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 100%;
+    min-height: 108px;
+    justify-content: end;
+  }
+  .fondo-negro {
+    background-color: black;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    height: 58px;
+    align-items: center;
+  }
+}
+
+@media (min-width: 769px) {
+  /** desktop **/
+  .columna-uno {
+    width: 48%;
+  }
+  .caja-cuadros {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0px 15px;
+  }
+  .imagen-escuela {
+    width: 200px;
+  }
+  .fondo-negro-bajo-imagen {
+    background-color: black;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 200px;
+    min-height: 135px;
+    justify-content: end;
+  }
+  .fondo-negro {
+    background-color: black;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/*  ------ EN CONSTRUCCION ------ */
+
+.en-construccion {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.en-construccion img {
+  height: 247px;
+}
+
+@media (min-width: 426px) {
+  /** tablet **/
+  .en-construccion {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .en-construccion img {
+    height: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  /** desktop **/
+  .en-construccion {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 656px;
+  }
+  .en-construccion img {
+    height: 100%;
+  }
+}
