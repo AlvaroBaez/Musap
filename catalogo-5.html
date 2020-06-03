@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="http://fonts.googleapis.com/css?family=Lato:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="styles/Style.css" />
+    <script src="/static/js/postrequest.js"></script>
+    <script src="/static/js/getrequest.js"></script>
+
+    <link rel="stylesheet" href="styles/Style.css" />
+    <link rel="stylesheet" href="styles/Style-caja.css" />
+
+    <script>
+      const previewImage = () => {
+        const UploadImages = document.querySelectorAll(".filter-image");
+        UploadImages.forEach(function (UploadImage) {
+          UploadImage.addEventListener("change", function (event) {
+            readURL(event.target, event.target.name + "-preview");
+          });
+        });
+      };
+      const showBox = () => {
+        const articleImgs = document.querySelectorAll(".caja-checkbox");
+        articleImgs.forEach(function (articleImg) {
+          articleImg.addEventListener("click", function (event) {
+            let currentTarget = event.target;
+            if (
+              event.target.nodeName === "INPUT" ||
+              event.target.nodeName === "LABEL"
+            ) {
+              currentTarget = event.target.parentNode;
+            }
+            if (event.target.nodeName === "DIV") {
+              event.target.firstElementChild.checked = !event.target
+                .firstElementChild.checked;
+            }
+            if (currentTarget.firstElementChild.checked) {
+              currentTarget.classList.add("caja-checkbox-blanca");
+            } else {
+              currentTarget.classList.remove("caja-checkbox-blanca");
+            }
+          });
+        });
+      };
+      document.addEventListener("DOMContentLoaded", (event) => {
+        showBox();
+        previewImage();
+      });
+      const enviar = () => {
+        const data = {};
+        const filtertexts = document.querySelectorAll(".filter-text");
+        filtertexts.forEach(function (elem) {
+          data[elem.name] = elem.value;
+        });
+        const filterCheckbox = document.querySelectorAll(".filter");
+        filterCheckbox.forEach(function (elem) {
+          data[elem.name] = elem.checked;
+        });
+        const filterImage = document.querySelectorAll(".image-preview");
+        filterImage.forEach(function (elem) {
+          data[elem.id] = elem.src;
+        });
+        console.log(JSON.stringify(data));
+      };
+      function readURL(input, name) {
+        console.log(name);
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            const preview = document.getElementById(name);
+            preview.src = e.target.result;
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
+
+    <style>
+      div label input {
+        margin-right: 100px;
+      }
+      body {
+        font-family: sans-serif;
+      }
+
+      #ck-button {
+        margin: 4px;
+        border-radius: 5px;
+        border: 2px solid white;
+        overflow: auto;
+        float: left;
+        padding: 5px;
+        background-color: transparent;
+        color: white;
+        font-size: 10px;
+        display: flex;
+      }
+
+      #ck-button:hover {
+        background: red;
+      }
+
+      #ck-button label {
+        float: left;
+        width: 4em;
+      }
+
+      #ck-button label span {
+        text-align: center;
+        padding: 3px 0px;
+        display: block;
+      }
+
+      #ck-button label input {
+        position: absolute;
+        top: -20px;
+      }
+
+      #ck-button input:checked + span {
+        background-color: #911;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body class="imagen-fondo-catalogo-color">
+    <!-- NAV -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light background-nav d-flex justify-content-center w-100"
+    >
+      <div class="d-flex justify-content-between">
+        <a href="/" class="navbar-brand"
+          ><img src="images/logo_small.png" alt=""
+        /></a>
+        <div class="burger d-lg-none">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div
+          class="collapse navbar-collapse menu-desktop"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav mr-auto m-0">
+            <li class="nav-item">
+              <a class="nav-link text-white font-weight-bold" href="/"
+                >INICIO</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white font-weight-bold"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                NOSOTRAS
+              </a>
+              <div
+                class="dropdown-menu background-nav-black"
+                aria-labelledby="navbarDropdown"
+              >
+                <a class="dropdown-item text-white font-weight-bold" href="#"
+                  >QUIENES SOMOS</a
+                >
+                <a class="dropdown-item text-white font-weight-bold" href="#"
+                  >GALERIA</a
+                >
+                <a class="dropdown-item text-white font-weight-bold" href="#"
+                  >NOVEDADES</a
+                >
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white font-weight-bold"
+                href="#"
+                id="navbarDropdown2"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                CATALOGO
+              </a>
+              <div
+                class="dropdown-menu background-nav-black"
+                aria-labelledby="navbarDropdown"
+              >
+                <a class="dropdown-item text-white font-weight-bold" href="#"
+                  >MÚSICA</a
+                >
+                <a class="dropdown-item text-white font-weight-bold" href="#"
+                  >AUDIOVISUAL</a
+                >
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white font-weight-bold" href="#"
+                >FESTIVAL</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white font-weight-bold"
+                href="#"
+                id="navbarDropdown3"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                ESCUELA
+              </a>
+              <div
+                class="dropdown-menu background-nav-black"
+                aria-labelledby="navbarDropdown"
+              >
+                <a class="dropdown-item text-white font-weight-bold" href="#"
+                  >PROGRMACIÓN</a
+                >
+                <a class="dropdown-item text-white font-weight-bold" href="#"
+                  >CANAL DIGITAL</a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="d-none d-lg-block">
+          <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <a name="options" id="option1" href="#"> INICIAR SESIÓN</a>
+            </label>
+            <label class="btn btn-secondary">
+              <a name="options" id="option2" href="#"> REGISTRARSE</a>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="collapse navbar-collapse menu-mobile"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav mr-auto m-0">
+          <li class="nav-item">
+            <a class="nav-link text-white font-weight-bold" href="#">INICIO</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-white font-weight-bold"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              NOSOTRAS
+            </a>
+            <div
+              class="dropdown-menu background-nav-black"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item text-white font-weight-bold" href="#"
+                >QUIENES SOMOS</a
+              >
+              <a class="dropdown-item text-white font-weight-bold" href="#"
+                >GALERIA</a
+              >
+              <a class="dropdown-item text-white font-weight-bold" href="#"
+                >NOVEDADES</a
+              >
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-white font-weight-bold"
+              href="#"
+              id="navbarDropdown2"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              CATALOGO
+            </a>
+            <div
+              class="dropdown-menu background-nav-black"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item text-white font-weight-bold" href="#"
+                >MÚSICA</a
+              >
+              <a class="dropdown-item text-white font-weight-bold" href="#"
+                >AUDIOVISUAL</a
+              >
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white font-weight-bold" href="#"
+              >FESTIVAL</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-white font-weight-bold"
+              href="#"
+              id="navbarDropdown3"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              ESCUELA
+            </a>
+            <div
+              class="dropdown-menu background-nav-black"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item text-white font-weight-bold" href="#"
+                >PROGRMACIÓN</a
+              >
+              <a class="dropdown-item text-white font-weight-bold" href="#"
+                >CANAL DIGITAL</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <form role="form" method="post" action="#">
+      <div class="fondo-blanco">
+        <p>FOTO DE ENCABEZADO DE TU PERFIL (BANNER)</p>
+
+        <div class="col-sm-5">
+          <input
+            type="file"
+            class="form-control"
+            id="uploadfile"
+            placeholder="Upload File"
+            name="uploadfile"
+          />
+        </div>
+      </div>
+
+      <main role="main" class="container">
+        <div class="container-musicxs">
+          <div class="d-flex">
+            <div class="container-sidebar">
+              <div class="boton-mobile">
+                <input
+                  type="text"
+                  id="fname"
+                  name="nomartistico"
+                  class="btn btn-primary boton-editar-perfil boton-editar-perfil-100"
+                />
+              </div>
+              <div>
+                <p class="text-editar">
+                  NOMBRE CON EL QUE QUIERES APARECER EN LA PLATAFORMA
+                </p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="circulo-blanco">
+                  <p class="text-editar circulo-blanco-text m-2">
+                    FOTO DE PERFIL
+                  </p>
+                  <label for="profile-image" class="custom-file-upload">
+                    <i class="fa fa-cloud-upload"></i> Subir Archivo
+                  </label>
+                  <img
+                    id="profile-image-preview"
+                    class="image-profile image-preview"
+                  />
+                  <input
+                    type="file"
+                    name="profile-image"
+                    id="profile-image"
+                    class="filter-image"
+                  />
+                </div>
+              </div>
+              <div>
+                <p class="texto-amarillo-size">
+                  CON QUE ÁREA DE LA MÚSICA TE IDENTIFICAS <br />(PUEDES ELEGIR
+                  MÁS DE UNA):
+                </p>
+              </div>
+
+              <div
+                class="mb-4"
+                style="display: flex; flex-direction: row; flex-wrap: wrap;"
+              >
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="banda"
+                    type="checkbox"
+                    id="inlineCheckbox1"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox1"
+                    >BANDA</label
+                  >
+                </div>
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="cantautora"
+                    type="checkbox"
+                    id="inlineCheckbox2"
+                    value="option2"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox2"
+                    >CANTAUTORA</label
+                  >
+                </div>
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="docente"
+                    type="checkbox"
+                    id="inlineCheckbox3"
+                    value="option3"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox3"
+                    >DOCENTE</label
+                  >
+                </div>
+
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="productomusical"
+                    type="checkbox"
+                    id="inlineCheckbox4"
+                    value="option4"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox4"
+                    >PRODUCTORA MUSICAL</label
+                  >
+                </div>
+
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="instrumentista"
+                    type="checkbox"
+                    id="inlineCheckbox5"
+                    value="option5"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox5"
+                    >INSTRUMENTISTA</label
+                  >
+                </div>
+
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="interpretevocalsolista"
+                    type="checkbox"
+                    id="inlineCheckbox6"
+                    value="option6"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox6"
+                    >INTÉRPRETE VOCAL/SOLISTA</label
+                  >
+                </div>
+
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="tecnicadelamusica"
+                    type="checkbox"
+                    id="inlineCheckbox7"
+                    value="option7"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox7"
+                    >TÉCNICA DE LA MÚSICA Y EL SONIDO</label
+                  >
+                </div>
+
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="otra"
+                    type="checkbox"
+                    id="inlineCheckbox8"
+                    value="option8"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox8"
+                    >OTRA</label
+                  >
+                </div>
+              </div>
+
+              <div>
+                <p class="texto-amarillo-size">
+                  SELECIONA UNO O MÁS SERVICIOS QUE TU DESEMPEÑES COMO
+                  TRABAJADORA DE LAS ARTES:
+                </p>
+              </div>
+              <div
+                class="mb-4"
+                style="display: flex; flex-direction: row; flex-wrap: wrap;"
+              >
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="musicaenvivo"
+                    type="checkbox"
+                    id="inlineCheckbox9"
+                    value="option9"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox9"
+                    >MÚSICA EN VIVO PARA EVENTO, FESTIVALES. ETC</label
+                  >
+                </div>
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="composicionoriginal"
+                    type="checkbox"
+                    id="inlineCheckbox10"
+                    value="option10"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox10"
+                    >COMPOSICIÓN ORIGINAL</label
+                  >
+                </div>
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="clasasotalleres"
+                    type="checkbox"
+                    id="inlineCheckbox11"
+                    value="option11"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox11"
+                    >CLASES O TALLERES</label
+                  >
+                </div>
+
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="produccionmusical"
+                    type="checkbox"
+                    id="inlineCheckbox12"
+                    value="option12"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox12"
+                    >PRODUCCIÓN MUSICAL</label
+                  >
+                </div>
+
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="artesonoro"
+                    type="checkbox"
+                    id="inlineCheckbox13"
+                    value="option13"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox13"
+                    >ARTE SONORO</label
+                  >
+                </div>
+
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="sesionista"
+                    type="checkbox"
+                    id="inlineCheckbox14"
+                    value="option14"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox14"
+                    >SESIONISTA PARA GRABACIONES O TOCAR EN VIVO</label
+                  >
+                </div>
+
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="roadiestage"
+                    type="checkbox"
+                    id="inlineCheckbox15"
+                    value="option15"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox15"
+                    >ROADIE/STAGE MANAGER</label
+                  >
+                </div>
+
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="iluminacion"
+                    type="checkbox"
+                    id="inlineCheckbox16"
+                    value="option16"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox16"
+                    >ILUMINACIÓN ESPECTACULOS MUSICALES</label
+                  >
+                </div>
+                <div class="form-check caja-checkbox">
+                  <input
+                    class="form-check-input filter display-none"
+                    name="produccion"
+                    type="checkbox"
+                    id="inlineCheckbox17"
+                    value="option17"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox17"
+                    >PRODUCCIÓN TÉCNICA MUSICAL</label
+                  >
+                </div>
+              </div>
+              <div>
+                <p class="texto-amarillo-size">
+                  PORTAFOLIO
+                </p>
+              </div>
+              <div>
+                <p class="text-editar">
+                  SUBE TU ARCHIVO EN FORMATO PDF (TU ARCHIVO NO DEBE PESAR MAS
+                  DE 10MB)
+                </p>
+              </div>
+              <div class="cuadrado-editar-portafolio">
+                <a href="#" class="circulo-blanco-text">
+                  <div class="col-sm-5">
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="uploadfile"
+                      placeholder="Upload File"
+                      name="uploadfile"
+                    />
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="container-contenido">
+              <div>
+                <p class="texto-amarillo">
+                  ME DEFINO COMO:
+                </p>
+              </div>
+              <div>
+                <p class="text-white">
+                  CREA UNA RESEÑA EN DONDE MENCIONES DE MANERA RESUMIDA TUS
+                  HITOS Y ESPECIALIDADES (MÁX. 500 CARACTERES)
+                </p>
+              </div>
+              <div>
+                <textarea
+                  maxlength="500"
+                  type="text"
+                  id="fname"
+                  name="resena"
+                  class="cuadrado-editar-me-defino filter-text"
+                ></textarea>
+              </div>
+              <div>
+                <p class="texto-amarillo">
+                  IMÁGENES DE TU PROYECTO
+                </p>
+              </div>
+              <div>
+                <p class="text-white">
+                  SUBE LAS TRES MEJORES IMAGENES QUE MEJOR IDENTIFIQUEN TU
+                  PROYECTO
+                </p>
+              </div>
+              <div class="caja-imagen-proyecto mb-4">
+                <div class="cuadro-proyecto">
+                  <div class="circulo-blanco-text">
+                    <label for="proyect-image-1" class="custom-file-upload">
+                      <i class="fa fa-cloud-upload"></i> Subir Archivo
+                    </label>
+                    <input
+                      type="file"
+                      name="proyect-image-1"
+                      id="proyect-image-1"
+                      class="filter-image"
+                    />
+                  </div>
+                </div>
+                <div class="cuadro-proyecto">
+                  <div class="circulo-blanco-text">
+                    <label for="proyect-image-2" class="custom-file-upload">
+                      <i class="fa fa-cloud-upload"></i> Subir Archivo
+                    </label>
+                    <input
+                      type="file"
+                      name="proyect-image-2"
+                      id="proyect-image-2"
+                      class="filter-image"
+                    />
+                  </div>
+                </div>
+                <div class="cuadro-proyecto">
+                  <div class="circulo-blanco-text">
+                    <label for="proyect-image-3" class="custom-file-upload">
+                      <i class="fa fa-cloud-upload"></i> Subir Archivo
+                    </label>
+                    <input
+                      type="file"
+                      name="proyect-image-3"
+                      id="proyect-image-3"
+                      class="filter-image"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p class="texto-amarillo">
+                  VIDEO PROMOCIONAL:
+                </p>
+              </div>
+              <div>
+                <p class="text-white">
+                  COPIAR EL LINK DE YOUTUBE DE UN VIDEO QUE MUESTRE TU TRABAJO
+                </p>
+              </div>
+              <div class="caja-video mb-4">
+                <a href="#" class="circulo-blanco-text"><u>PEGAR LINK</u></a>
+              </div>
+              <div>
+                <p class="texto-amarillo">
+                  DESCRIBE TUS ÚLTIMOS TRABAJOS REALIZADOS:
+                </p>
+              </div>
+              <div>
+                <p class="text-white">
+                  MÁXIMO 250 CARACTERES
+                </p>
+              </div>
+              <div class="mb-4">
+                <div class="d-flex imagen-ultimo-trabajo mb-3 column-escribe">
+                  <textarea
+                    maxlength="250"
+                    type="text"
+                    id="fname"
+                    name="ultimo-trabajo-1"
+                    class="cuadrado-editar-me-defino filter-text pl-3"
+                  ></textarea>
+                  <div class="caja-video">
+                    <a href="#" class="circulo-blanco-text"
+                      ><u>PEGAR LINK</u></a
+                    >
+                  </div>
+                </div>
+                <div class="d-flex imagen-ultimo-trabajo mb-3">
+                  <textarea
+                    maxlength="250"
+                    type="text"
+                    id="fname"
+                    name="ultimo-trabajo-2"
+                    class="cuadrado-editar-me-defino filter-text pl-3"
+                  ></textarea>
+                  <div class="caja-video">
+                    <a href="#" class="circulo-blanco-text"
+                      ><u>PEGAR LINK</u></a
+                    >
+                  </div>
+                </div>
+                <div class="d-flex imagen-ultimo-trabajo mb-3">
+                  <textarea
+                    maxlength="250"
+                    type="text"
+                    id="fname"
+                    name="ultimo-trabajo-3"
+                    class="cuadrado-editar-me-defino filter-text pl-3"
+                  ></textarea>
+                  <div class="caja-video">
+                    <a href="#" class="circulo-blanco-text"
+                      ><u>PEGAR LINK</u></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center mb-4">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-formulario btn-100"
+                  onclick="enviar()"
+                >
+                  GUARDAR
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </form>
+    <!-- FOOTER -->
+    <footer class="footer footer-size d-flex justify-content-center">
+      <div
+        class="flex-row container d-flex justify-content-between align-items-center align-content-center h-100 m-0 p-0"
+      >
+        <div class="social">
+          <a class="mr-3" href="https://www.facebook.com/"
+            ><img src="images/face.png" alt=""
+          /></a>
+          <a class="mr-2" href="https://www.instagram.com/"
+            ><img src="images/insta.png" alt=""
+          /></a>
+          <a href="#">
+            <div class="contacto text-white ml-2">
+              <span>Contacto:</span>
+              <span>redtrabajadoresdelarte@gmail.com</span>
+            </div>
+          </a>
+        </div>
+        <div class="logos">
+          <a href="#"
+            ><img class="imagenes-logos" src="images/gestoras.png" alt=""
+          /></a>
+          <a href="#"
+            ><img class="imagenes-logos" src="images/musap_logo.png" alt=""
+          /></a>
+          <a href="#"
+            ><img class="imagenes-logos" src="images/fmn.png" alt=""
+          /></a>
+          <a href="#"
+            ><img class="imagenes-logos" src="images/femfest.png" alt=""
+          /></a>
+          <a href="#"
+            ><img class="imagenes-logos" src="images/nekoe.png" alt=""
+          /></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
