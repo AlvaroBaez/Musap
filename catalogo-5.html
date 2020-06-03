@@ -76,7 +76,7 @@
         });
         const filterImage = document.querySelectorAll(".image-preview");
         filterImage.forEach(function (elem) {
-          data[elem.id] = elem.src;
+          data[elem.id] = elem.src || elem.dataset.src;
         });
         console.log(JSON.stringify(data));
       };
@@ -86,8 +86,16 @@
           var reader = new FileReader();
 
           reader.onload = function (e) {
+            const a = input.files[0];
             const preview = document.getElementById(name);
-            preview.src = e.target.result;
+            console.log(a.type);
+            preview.src = "./file.jpg";
+            if (["image/jpeg", "image/png"].includes(a.type)) {
+              preview.src = e.target.result;
+            } else {
+              const fileMusap = document.getElementById(name + "-file");
+              fileMusap.dataset.src = e.target.result;
+            }
           };
           reader.readAsDataURL(input.files[0]);
         }
@@ -363,16 +371,19 @@
     <form role="form" method="post" action="#">
       <div class="fondo-blanco">
         <p>FOTO DE ENCABEZADO DE TU PERFIL (BANNER)</p>
-
-        <div class="col-sm-5">
-          <input
-            type="file"
-            class="form-control"
-            id="uploadfile"
-            placeholder="Upload File"
-            name="uploadfile"
-          />
-        </div>
+        <label for="banner-image" class="custom-file-upload">
+          <i class="fa fa-cloud-upload"></i> Subir Imagen
+        </label>
+        <img
+          id="banner-image-preview"
+          class="image-profile image-preview banner-image"
+        />
+        <input
+          type="file"
+          name="banner-image"
+          id="banner-image"
+          class="filter-image"
+        />
       </div>
 
       <main role="main" class="container">
@@ -380,12 +391,21 @@
           <div class="d-flex">
             <div class="container-sidebar">
               <div class="boton-mobile">
+                <!--
                 <input
                   type="text"
                   id="fname"
                   name="nomartistico"
                   class="btn btn-primary boton-editar-perfil boton-editar-perfil-100"
-                />
+                />-->
+                <input
+                  maxlength="300"
+                  type="text"
+                  id="nomartistico"
+                  name="nomartistico"
+                  class="editar-perfil filter-text"
+                  placeholder="NOMBRE ARTÍSTICO/ NOMBRE DE BANDA"
+                ></input>
               </div>
               <div>
                 <p class="text-editar">
@@ -398,7 +418,7 @@
                     FOTO DE PERFIL
                   </p>
                   <label for="profile-image" class="custom-file-upload">
-                    <i class="fa fa-cloud-upload"></i> Subir Archivo
+                    <i class="fa fa-cloud-upload"></i> Subir Imagen
                   </label>
                   <img
                     id="profile-image-preview"
@@ -662,17 +682,23 @@
                 </p>
               </div>
               <div class="cuadrado-editar-portafolio">
-                <a href="#" class="circulo-blanco-text">
-                  <div class="col-sm-5">
-                    <input
-                      type="file"
-                      class="form-control"
-                      id="uploadfile"
-                      placeholder="Upload File"
-                      name="uploadfile"
-                    />
-                  </div>
-                </a>
+                <label for="portafolio-image" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Subir Archivo
+                </label>
+                <img
+                  id="portafolio-image-preview"
+                  class="image-profile image-preview portafolio-image"
+                />
+                <div
+                  id="portafolio-image-preview-file"
+                  class="image-preview"
+                ></div>
+                <input
+                  type="file"
+                  name="portafolio-image"
+                  id="portafolio-image"
+                  class="filter-image"
+                />
               </div>
             </div>
             <div class="container-contenido">
@@ -693,7 +719,7 @@
                   type="text"
                   id="fname"
                   name="resena"
-                  class="cuadrado-editar-me-defino filter-text"
+                  class="cuadrado-editar-me-defino filter-text mb-4"
                 ></textarea>
               </div>
               <div>
@@ -710,39 +736,51 @@
               <div class="caja-imagen-proyecto mb-4">
                 <div class="cuadro-proyecto">
                   <div class="circulo-blanco-text">
-                    <label for="proyect-image-1" class="custom-file-upload">
-                      <i class="fa fa-cloud-upload"></i> Subir Archivo
+                    <label for="proyecto-image-1" class="custom-file-upload">
+                      <i class="fa fa-cloud-upload"></i> Subir Imagen
                     </label>
+                    <img
+                      id="proyecto-image-1-preview"
+                      class="image-profile image-preview proyecto-image"
+                    />
                     <input
                       type="file"
-                      name="proyect-image-1"
-                      id="proyect-image-1"
+                      name="proyecto-image-1"
+                      id="proyecto-image-1"
                       class="filter-image"
                     />
                   </div>
                 </div>
                 <div class="cuadro-proyecto">
                   <div class="circulo-blanco-text">
-                    <label for="proyect-image-2" class="custom-file-upload">
-                      <i class="fa fa-cloud-upload"></i> Subir Archivo
+                    <label for="proyecto-image-2" class="custom-file-upload">
+                      <i class="fa fa-cloud-upload"></i> Subir Imagen
                     </label>
+                    <img
+                      id="proyecto-image-2-preview"
+                      class="image-profile image-preview proyecto-image"
+                    />
                     <input
                       type="file"
-                      name="proyect-image-2"
-                      id="proyect-image-2"
+                      name="proyecto-image-2"
+                      id="proyecto-image-2"
                       class="filter-image"
                     />
                   </div>
                 </div>
                 <div class="cuadro-proyecto">
                   <div class="circulo-blanco-text">
-                    <label for="proyect-image-3" class="custom-file-upload">
-                      <i class="fa fa-cloud-upload"></i> Subir Archivo
+                    <label for="proyecto-image-3" class="custom-file-upload">
+                      <i class="fa fa-cloud-upload"></i> Subir Imagen
                     </label>
+                    <img
+                      id="proyecto-image-3-preview"
+                      class="image-profile image-preview proyecto-image"
+                    />
                     <input
                       type="file"
-                      name="proyect-image-3"
-                      id="proyect-image-3"
+                      name="proyecto-image-3"
+                      id="proyecto-image-3"
                       class="filter-image"
                     />
                   </div>
@@ -759,7 +797,8 @@
                 </p>
               </div>
               <div class="caja-video mb-4">
-                <a href="#" class="circulo-blanco-text"><u>PEGAR LINK</u></a>
+                <input maxlength="300" type="text" id="pegar-link-youtube" name="pegar-link-youtube" class="pegar-link filter-text"
+                  placeholder="PEGAR LINK"></input>
               </div>
               <div>
                 <p class="texto-amarillo">
@@ -781,9 +820,8 @@
                     class="cuadrado-editar-me-defino filter-text pl-3"
                   ></textarea>
                   <div class="caja-video">
-                    <a href="#" class="circulo-blanco-text"
-                      ><u>PEGAR LINK</u></a
-                    >
+                    <input maxlength="300" type="text" id="pegar-link-youtube-1" name="pegar-link-youtube-1" class="pegar-link filter-text"
+                      placeholder="PEGAR LINK"></input>
                   </div>
                 </div>
                 <div class="d-flex imagen-ultimo-trabajo mb-3">
@@ -795,9 +833,8 @@
                     class="cuadrado-editar-me-defino filter-text pl-3"
                   ></textarea>
                   <div class="caja-video">
-                    <a href="#" class="circulo-blanco-text"
-                      ><u>PEGAR LINK</u></a
-                    >
+                    <input maxlength="300" type="text" id="pegar-link-youtube-2" name="pegar-link-youtube-2" class="pegar-link filter-text"
+                      placeholder="PEGAR LINK"></input>
                   </div>
                 </div>
                 <div class="d-flex imagen-ultimo-trabajo mb-3">
@@ -809,9 +846,8 @@
                     class="cuadrado-editar-me-defino filter-text pl-3"
                   ></textarea>
                   <div class="caja-video">
-                    <a href="#" class="circulo-blanco-text"
-                      ><u>PEGAR LINK</u></a
-                    >
+                    <input maxlength="300" type="text" id="pegar-link-youtube-3" name="pegar-link-youtube-3" class="pegar-link filter-text"
+                      placeholder="PEGAR LINK"></input>
                   </div>
                 </div>
               </div>
